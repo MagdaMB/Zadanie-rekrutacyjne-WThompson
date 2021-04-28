@@ -1,0 +1,14 @@
+@import "../style/components/header.scss";
+@import "../style/components/main.scss";
+@import "../style/components/footer.scss";
+
+* {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}

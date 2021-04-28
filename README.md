@@ -1,0 +1,1 @@
+Zadanie do wykonania procesu rekrutacji dla Wunderman Thompson

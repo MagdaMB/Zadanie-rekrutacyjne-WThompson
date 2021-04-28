@@ -1,0 +1,135 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+.header {
+  align-items: flex-start;
+  background: url("../../images/background.jpg") center no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  min-height: 1000px;
+  width: 100%;
+
+  &__logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 44px;
+    padding: 24px 0 24px 5%;
+    min-width: 210px;
+    z-index: 1;
+    img {
+      height: 44px;
+    }
+    p {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 7px;
+      color: $colorDefault;
+      font-weight: 600;
+    }
+  }
+
+  &__menu {
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 1;
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 70%;
+    .menu {
+      .menu__list {
+        min-width: 120px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding-top: 80px;
+
+        .menu__item {
+          padding: 15px 0;
+          a {
+            @include menuLinks;
+          }
+        }
+      }
+    }
+  }
+
+  .visible {
+    display: block !important;
+  }
+
+  &__hamburger {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    padding: 24px 30px 24px 0;
+    right: 0;
+    z-index: 1;
+    .hamburger__box {
+      border-top: 5px solid $colorDefault;
+      cursor: pointer;
+      height: 40px;
+      position: relative;
+      width: 40px;
+
+      &:before,
+      &:after {
+        background: $colorDefault;
+        border-top: 5px solid $colorDefault;
+        content: "";
+        display: block;
+        left: 0;
+        position: absolute;
+        top: 0;
+        transform: translateY(13px);
+        width: 40px;
+        transition: all 0.5s ease-in-out;
+      }
+
+      &:after {
+        transform: translateY(30px);
+      }
+
+      &:hover {
+        border-top: none;
+        top: 15px;
+        &:before {
+          transform: rotate(45deg);
+        }
+        &:after {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  @media all and (min-width: 1024px) {
+    &__logo {
+      padding-left: 10%;
+    }
+    &__hamburger {
+      display: none;
+    }
+    &__menu {
+      background: none;
+      display: block;
+      padding: 35px 10% 0 0;
+      z-index: 1;
+      width: 40%;
+      .menu {
+        .menu__list {
+          padding-top: 0;
+          flex-direction: row-reverse;
+          .menu__item {
+            a {
+              padding: 0 15px 24px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
